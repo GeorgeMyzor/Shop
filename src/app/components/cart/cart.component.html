@@ -1,0 +1,5 @@
+<div *ngIf="isEmpty then noItems else listItems"></div>
+<ng-template #listItems>Products in cart:
+  <div *ngFor="let product of getProductsInCart()">{{product.name}}</div>
+</ng-template>
+<ng-template #noItems>Cart is empty</ng-template>
