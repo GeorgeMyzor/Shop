@@ -1,11 +1,11 @@
 import { Category } from 'src/app/enums/category.enum';
 import { IProduct } from 'src/app/interfaces/product.interface';
 
-export class Product implements IProduct {
+export class ProductModel implements IProduct {
   name: string;
   description: string;
   price: number;
-  categroy: Category;
+  category: Category;
   isAvailable: boolean;
 
   constructor(
@@ -18,7 +18,7 @@ export class Product implements IProduct {
     this.name = name;
     this.description = description;
     this.price = price;
-    this.categroy = category;
+    this.category = category;
     this.isAvailable = isAvailable;
   }
 }

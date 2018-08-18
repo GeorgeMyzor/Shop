@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+
 import { IProduct } from 'src/app/interfaces/product.interface';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -15,6 +16,7 @@ export class ProductComponent {
 
   onBuy() {
     this.isBought = true;
+    this.product.isAvailable = false;
     this.cartService.addToCart(this.product);
   }
 }
