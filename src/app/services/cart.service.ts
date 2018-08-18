@@ -22,4 +22,12 @@ export class CartService {
   getProductsInCart(): IProduct[] {
     return this.productsInCart;
   }
+
+  removeFromCart(product: IProduct) {
+    const index: number = this.productsInCart.indexOf(product);
+    if (index !== -1) {
+        this.productsInCart.splice(index, 1);
+        product.isAvailable = true;
+    }
+  }
 }

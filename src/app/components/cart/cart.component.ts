@@ -17,6 +17,10 @@ export class CartComponent {
 
   constructor(private cartService: CartService) { }
 
+  onRemoveFromCart(product: IProduct) {
+    this.cartService.removeFromCart(product);
+  }
+
   getProductsInCart(): IProduct[] {
     return this.cartService.getProductsInCart();
   }

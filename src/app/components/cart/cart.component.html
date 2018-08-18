@@ -2,6 +2,7 @@
 <ng-template #listItems>Products in cart:
   <div *ngFor="let product of getProductsInCart()">
     <app-product [product]="product"></app-product>
+    <button (click)="onRemoveFromCart(product)">Remove from cart</button>
   </div>
 </ng-template>
 <ng-template #noItems>Cart is empty</ng-template>
