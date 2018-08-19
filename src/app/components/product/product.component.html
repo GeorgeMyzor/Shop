@@ -12,6 +12,6 @@ Product
   Is Available: {{product.isAvailable}}
 </p>
 
-<button *ngIf="!fromCart" [disabled]="!product.isAvailable" (click)="onBuy()">Buy</button>
+<button [disabled]="!product.isAvailable" (click)="onBuy()">Buy</button>
 
 <div *ngIf="isBought">Thanks for purchase</div>

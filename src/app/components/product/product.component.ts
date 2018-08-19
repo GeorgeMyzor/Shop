@@ -11,7 +11,6 @@ import { Output } from '@angular/core';
 })
 export class ProductComponent {
   @Input() product: IProduct;
-  @Input() fromCart: boolean;
   @Output() buy: EventEmitter<IProduct> = new EventEmitter();
   isBought: boolean;
 
@@ -19,7 +18,6 @@ export class ProductComponent {
 
   onBuy() {
     this.isBought = true;
-    this.product.isAvailable = false;
 
     this.buy.emit(this.product);
   }

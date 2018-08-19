@@ -12,13 +12,9 @@ import { CartComponent } from 'src/app/components/cart/cart.component';
   ],
   declarations: [
     ProductComponent,
-    ProductListComponent,
-    CartComponent
+    ProductListComponent
   ],
   providers: [ProductsService],
-  exports: [
-    ProductListComponent,
-    CartComponent
-  ]
+  exports: [ProductListComponent]
 })
 export class ProductsModule { }

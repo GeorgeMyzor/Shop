@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { CartService } from 'src/app/services/cart.service';
-import { IProduct } from 'src/app/interfaces/product.interface';
+import { ICartItem } from 'src/app/interfaces/cart-item.interface';
+import { StockService } from 'src/app/services/stock.service';
 
 @Component({
   selector: 'app-cart',
@@ -17,13 +18,16 @@ export class CartComponent {
     return this.cartService.getProductsPrice();
   }
 
-  constructor(private cartService: CartService) { }
+  constructor(
+    private cartService: CartService,
+    private stockService: StockService) { }
 
-  onRemoveFromCart(product: IProduct) {
+  onRemoveFromCart(product: ICartItem) {
     this.cartService.removeFromCart(product);
+    this.stockService.increaseStock(product.name);
   }
 
-  getProductsInCart(): IProduct[] {
+  getProductsInCart(): ICartItem[] {
     return this.cartService.getProductsInCart();
   }
 }

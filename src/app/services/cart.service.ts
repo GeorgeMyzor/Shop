@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 
 import { IProduct } from 'src/app/interfaces/product.interface';
+import { ICartItem } from 'src/app/interfaces/cart-item.interface';
+import { CartItemModel } from 'src/app/models/cart-item.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private productsInCart: IProduct[];
+  private productsInCart: ICartItem[];
 
   constructor() {
     this.productsInCart = [];
@@ -17,16 +19,16 @@ export class CartService {
   }
 
   addToCart(product: IProduct) {
-    this.productsInCart.push(product);
+    this.productsInCart.push(this.toCartItem(product));
   }
 
-  getProductsInCart(): IProduct[] {
+  getProductsInCart(): ICartItem[] {
     return this.productsInCart;
   }
 
   getProductsPrice(): number {
     let totalPrice = 0;
-    const products: IProduct[] = this.productsInCart;
+    const products: ICartItem[] = this.productsInCart;
 
     for (const product of products) {
       totalPrice += product.price;
@@ -35,11 +37,14 @@ export class CartService {
     return totalPrice;
   }
 
-  removeFromCart(product: IProduct) {
+  removeFromCart(product: ICartItem) {
     const index: number = this.productsInCart.indexOf(product);
     if (index !== -1) {
         this.productsInCart.splice(index, 1);
-        product.isAvailable = true;
     }
+  }
+
+  private toCartItem(product: IProduct): ICartItem {
+    return new CartItemModel(product.name, product.price, product.shipDate);
   }
 }

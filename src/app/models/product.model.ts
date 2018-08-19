@@ -9,7 +9,7 @@ export class ProductModel implements IProduct {
     public category: Category,
     public isAvailable: boolean,
     public shipDate?: Date,
-    public publicdiscount?: number,
+    public discount?: number,
   ) {
     this.name = name;
     this.description = description;
@@ -17,6 +17,6 @@ export class ProductModel implements IProduct {
     this.category = category;
     this.isAvailable = isAvailable;
     this.shipDate = shipDate;
-    this.publicdiscount = publicdiscount;
+    this.discount = discount;
   }
 }
