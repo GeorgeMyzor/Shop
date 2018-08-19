@@ -15,3 +15,5 @@ Add cart module.
 Add CartItem module.
 Add StockService to track products in stock.
 Add template variable for app component.
+
+Add onpush on CartItem.
