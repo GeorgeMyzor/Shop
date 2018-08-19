@@ -6,7 +6,8 @@ import { IProduct } from 'src/app/interfaces/product.interface';
   providedIn: 'root'
 })
 export class CartService {
-  productsInCart: IProduct[];
+  private productsInCart: IProduct[];
+
   constructor() {
     this.productsInCart = [];
   }
@@ -21,6 +22,17 @@ export class CartService {
 
   getProductsInCart(): IProduct[] {
     return this.productsInCart;
+  }
+
+  getProductsPrice(): number {
+    let totalPrice = 0;
+    const products: IProduct[] = this.productsInCart;
+
+    for (const product of products) {
+      totalPrice += product.price;
+    }
+
+    return totalPrice;
   }
 
   removeFromCart(product: IProduct) {

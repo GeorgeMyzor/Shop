@@ -6,4 +6,6 @@ export interface IProduct {
   price: number;
   category: Category;
   isAvailable: boolean;
+  shipDate?: Date;
+  discount?: number;
 }

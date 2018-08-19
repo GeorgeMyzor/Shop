@@ -5,16 +5,15 @@ import { AppComponent } from './app.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { CartComponent } from './components/cart/cart.component';
+import { ProductsModule } from 'src/app/products/products.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ProductComponent,
-    ProductListComponent,
-    CartComponent
+    AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ProductsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

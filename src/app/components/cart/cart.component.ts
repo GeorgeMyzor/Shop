@@ -9,10 +9,12 @@ import { IProduct } from 'src/app/interfaces/product.interface';
   styles: []
 })
 export class CartComponent {
-  productsInCart: IProduct[];
+  get productsCount(): number {
+    return this.cartService.getProductsCount();
+  }
 
-  get isEmpty(): boolean {
-    return this.cartService.getProductsCount() === 0;
+  get productsPrice(): number {
+    return this.cartService.getProductsPrice();
   }
 
   constructor(private cartService: CartService) { }

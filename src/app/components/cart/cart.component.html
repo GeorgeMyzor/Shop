@@ -1,8 +1,10 @@
-<div *ngIf="isEmpty then noItems else listItems"></div>
+<div *ngIf="productsCount === 0 then noItems else listItems"></div>
 <ng-template #listItems>Products in cart:
   <div *ngFor="let product of getProductsInCart()">
-    <app-product [product]="product"></app-product>
+    <app-product [product]="product" [fromCart]="true"></app-product>
     <button (click)="onRemoveFromCart(product)">Remove from cart</button>
   </div>
+  <p>Total price: {{productsPrice}}</p>
+  <p>Products in cart: {{productsCount}}</p>
 </ng-template>
 <ng-template #noItems>Cart is empty</ng-template>
