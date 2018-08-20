@@ -17,3 +17,7 @@ Add StockService to track products in stock.
 Add template variable for app component.
 
 Add onpush on CartItem.
+
+Add directive for background-color changing.
+Add ngStyle usage.
+Add ShareModule.

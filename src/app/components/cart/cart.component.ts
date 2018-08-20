@@ -10,6 +10,8 @@ import { StockService } from 'src/app/services/stock.service';
   styles: []
 })
 export class CartComponent {
+  styles = {};
+
   get productsCount(): number {
     return this.cartService.getProductsCount();
   }
@@ -27,7 +29,15 @@ export class CartComponent {
     this.stockService.increaseStock(product.name);
   }
 
+  onMouseout() {
+    this.styles = {'background-color': 'white'};
+  }
+
   getProductsInCart(): ICartItem[] {
     return this.cartService.getProductsInCart();
+  }
+
+  changeBackgroundColor() {
+    this.styles = {'background-color': 'blue'};
   }
 }

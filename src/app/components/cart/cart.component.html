@@ -1,6 +1,6 @@
 <div *ngIf="productsCount === 0 then noItems else listItems"></div>
 <ng-template #listItems>Products in cart:
-  <div *ngFor="let product of getProductsInCart()">
+  <div [ngStyle]="styles" *ngFor="let product of getProductsInCart()" (mouseover.background)="changeBackgroundColor($event)" (mouseout)="onMouseout()">
     <app-cart-item [product]="product"></app-cart-item>
     <button (click)="onRemoveFromCart(product)">Remove from cart</button>
   </div>
