@@ -1,8 +1,12 @@
 <div *ngIf="productsCount === 0 then noItems else listItems"></div>
 <ng-template #listItems>Products in cart:
-  <div [ngStyle]="styles" *ngFor="let product of getProductsInCart()" (mouseover.background)="changeBackgroundColor($event)" (mouseout)="onMouseout()">
+  <div *ngFor="let product of getProductsInCart()">
     <app-cart-item [product]="product"></app-cart-item>
     <button (click)="onRemoveFromCart(product)">Remove from cart</button>
+    <button [disabled]="this.stockService.getProductQuantity(product.name) === 0" (click)="addOne(product)">Inc</button>
+    <button [disabled]="this.cartService.getSpecificProductCount(product.name) === 0" (click)="removeOne(product)">Dec</button>
+
+    <p>Product quantity in cart:{{product.quantity}}</p>
   </div>
   <p>Total price: {{productsPrice}}</p>
   <p>Products in cart: {{productsCount}}</p>

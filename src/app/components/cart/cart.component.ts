@@ -21,8 +21,8 @@ export class CartComponent {
   }
 
   constructor(
-    private cartService: CartService,
-    private stockService: StockService) { }
+    public cartService: CartService,
+    public stockService: StockService) { }
 
   onRemoveFromCart(product: ICartItem) {
     this.cartService.removeFromCart(product);
@@ -39,5 +39,15 @@ export class CartComponent {
 
   changeBackgroundColor() {
     this.styles = {'background-color': 'blue'};
+  }
+
+  addOne(product: ICartItem) {
+    this.stockService.decreaseStock(product.name);
+    this.cartService.addQuantity(product.name);
+  }
+
+  removeOne(product: ICartItem) {
+    this.stockService.increaseStock(product.name);
+    this.cartService.removeQuantity(product.name);
   }
 }

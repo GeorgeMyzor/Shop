@@ -15,15 +15,29 @@ export class CartService {
   }
 
   getProductsCount(): number {
-    return this.productsInCart.length;
+    let totalCount = 0;
+
+    for (const product of this.productsInCart) {
+      totalCount += product.quantity;
+    }
+    return totalCount;
   }
 
-  addToCart(product: IProduct) {
-    this.productsInCart.push(this.toCartItem(product));
+  addToCart(product: IProduct, quantity?: number) {
+    if (!quantity) {
+      quantity = 1;
+    }
+
+    this.productsInCart.push(this.toCartItem(product, quantity));
   }
 
   getProductsInCart(): ICartItem[] {
     return this.productsInCart;
+  }
+
+  getSpecificProductCount(productName: string): number {
+    const product = this.productsInCart.find(p => p.name === productName);
+    return product.quantity;
   }
 
   getProductsPrice(): number {
@@ -40,11 +54,21 @@ export class CartService {
   removeFromCart(product: ICartItem) {
     const index: number = this.productsInCart.indexOf(product);
     if (index !== -1) {
-        this.productsInCart.splice(index, 1);
+      this.productsInCart.splice(index, 1);
     }
   }
 
-  private toCartItem(product: IProduct): ICartItem {
-    return new CartItemModel(product.name, product.price, product.shipDate);
+  addQuantity(productName: string) {
+    const product = this.productsInCart.find(p => p.name === productName);
+    product.quantity++;
+  }
+
+  removeQuantity(productName: string) {
+    const product = this.productsInCart.find(p => p.name === productName);
+    product.quantity--;
+  }
+
+  private toCartItem(product: IProduct, quantity: number): ICartItem {
+    return new CartItemModel(product.name, product.price, quantity);
   }
 }

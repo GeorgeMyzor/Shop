@@ -26,10 +26,17 @@ export class StockService {
     }
   }
 
-  decreaseStock(product: IProduct) {
-    this.stockMap[product.name]--;
-    if (this.stockMap[product.name] <= 0) {
+  decreaseStock(productName: string) {
+    this.stockMap[productName]--;
+
+    if (this.stockMap[productName] === 0) {
+      const products = this.productsService.getProducts();
+      const product = products.find(p => p.name === productName);
       product.isAvailable = false;
     }
+  }
+
+  getProductQuantity(productName: string): number {
+    return this.stockMap[productName];
   }
 }
