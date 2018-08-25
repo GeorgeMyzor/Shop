@@ -39,4 +39,15 @@ export class StockService {
   getProductQuantity(productName: string): number {
     return this.stockMap[productName];
   }
+
+  restoreStock() {
+    this.stockMap['Name1'] = 1;
+    this.stockMap['Name2'] = 2;
+    this.stockMap['Name3'] = 3;
+
+    const products = this.productsService.getProducts();
+    for (const product of products) {
+      product.isAvailable = true;
+    }
+  }
 }

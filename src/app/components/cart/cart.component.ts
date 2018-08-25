@@ -50,4 +50,9 @@ export class CartComponent {
     this.stockService.increaseStock(product.name);
     this.cartService.removeQuantity(product.name);
   }
+
+  clearCart() {
+    this.cartService.clearCart();
+    this.stockService.restoreStock();
+  }
 }

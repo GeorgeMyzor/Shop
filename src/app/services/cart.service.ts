@@ -68,6 +68,10 @@ export class CartService {
     product.quantity--;
   }
 
+  clearCart() {
+    this.productsInCart = [];
+  }
+
   private toCartItem(product: IProduct, quantity: number): ICartItem {
     return new CartItemModel(product.name, product.price, quantity);
   }

@@ -10,5 +10,7 @@
   </div>
   <p>Total price: {{productsPrice}}</p>
   <p>Products in cart: {{productsCount}}</p>
+
+  <button (click)="clearCart()">Clear cart</button>
 </ng-template>
 <ng-template #noItems>Cart is empty</ng-template>
