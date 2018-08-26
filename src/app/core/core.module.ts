@@ -7,6 +7,7 @@ import { ConfigOptionsService } from 'src/app/core/services/config-options.servi
 import { ConstantsService } from 'src/app/core/services/constants.service';
 import { GeneratorService } from 'src/app/core/services/generator.service';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
+import { FontChangerDirective } from './font-changer.directive';
 
 const configOptions = new ConfigOptionsService(1, 'login', 'email');
 
@@ -21,6 +22,6 @@ const configOptions = new ConfigOptionsService(1, 'login', 'email');
     LocalStorageService
   ],
   exports: [ContactUsComponent],
-  declarations: [ContactUsComponent]
+  declarations: [ContactUsComponent, FontChangerDirective]
 })
 export class CoreModule { }
