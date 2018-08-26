@@ -21,3 +21,10 @@ Add onpush on CartItem.
 Add directive for background-color changing.
 Add ngStyle usage.
 Add ShareModule.
+
+Task 3:
+Add remove/add specific product in cart.
+Add clear cart.
+
+Add services.
+Add core module, inject those services.
