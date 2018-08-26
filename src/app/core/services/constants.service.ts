@@ -7,5 +7,9 @@ import { CoreModule } from 'src/app/core/core.module';
 })
 export class ConstantsService {
 
-  constructor() { }
+  constructor(
+    public appName: string,
+    public version: string
+  ) {
+  }
 }

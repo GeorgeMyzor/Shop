@@ -7,17 +7,18 @@ import { ConfigOptionsService } from 'src/app/core/services/config-options.servi
 import { ConstantsService } from 'src/app/core/services/constants.service';
 import { GeneratorService } from 'src/app/core/services/generator.service';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
+
 import { FontChangerDirective } from './font-changer.directive';
 
-const configOptions = new ConfigOptionsService(1, 'login', 'email');
+const constants = new ConstantsService('TestApp', '1,0');
 
 @NgModule({
   imports: [
     CommonModule
   ],
   providers: [
-    { provide: ConfigOptionsService, useValue: configOptions},
-    ConstantsService,
+    { provide: ConstantsService, useValue: constants},
+    ConfigOptionsService,
     GeneratorService,
     LocalStorageService
   ],

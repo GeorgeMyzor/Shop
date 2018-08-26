@@ -30,3 +30,7 @@ Add services.
 Add core module, inject those services.
 
 Add dirictive with elementref and rendere2, also with Input(). (in ContactUsComponent)
+
+Add generator service inject.
+Inject constants.
+Add generator/localstorage logic.

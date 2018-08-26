@@ -9,11 +9,7 @@ import { CoreModule } from 'src/app/core/core.module';
 export class ConfigOptionsService {
   private configOptions: ConfigOptions;
 
-  constructor(
-    public id: number,
-    public login: string,
-    public email: string
-  ) {
+  constructor(  ) {
     this.configOptions = new ConfigOptions();
   }
 
