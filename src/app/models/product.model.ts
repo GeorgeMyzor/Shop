@@ -16,7 +16,7 @@ export class ProductModel implements IProduct {
     this.price = price;
     this.category = category;
     this.isAvailable = isAvailable;
-    this.shipDate = shipDate;
+    this.shipDate = new Date();
     this.discount = discount;
   }
 }

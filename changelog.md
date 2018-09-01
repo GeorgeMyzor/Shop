@@ -34,3 +34,9 @@ Add dirictive with elementref and rendere2, also with Input(). (in ContactUsComp
 Add generator service inject.
 Inject constants.
 Add generator/localstorage logic.
+
+
+Task 4:
+Currency/UpperCase/TittleCase/Date in product.component
+OrderBy Name/Price/etc Asc/Desc pipe used in product-list.component.
+Add pipe in shared module.

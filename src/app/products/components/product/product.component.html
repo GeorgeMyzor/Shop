@@ -1,12 +1,15 @@
 Product
 <p>
-  Name: {{product.name}}
+  Name: {{product.name | titlecase}}
 </p>
 <p>
-  Price: {{product.price}}
+  Price: {{product.price | currency}}
 </p>
 <p>
-  Description: {{product.description}}
+  Description: {{product.description | uppercase}}
+</p>
+<p>
+  Date: {{product.shipDate | date:'short'}}
 </p>
 <p>
   Is Available: {{product.isAvailable}}

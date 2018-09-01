@@ -10,7 +10,7 @@ import { Category } from 'src/app/enums/category.enum';
 export class ProductsService {
   private products: IProduct[] = [
     new ProductModel('Name1', 'Desc1', 1, Category.Food, true),
-    new ProductModel('Name2', 'Desc2', 2, Category.Clothing, true),
+    new ProductModel('Name2', 'Desc2', 5, Category.Clothing, true),
     new ProductModel('Name3', 'Desc3', 3, Category.Music, true)
   ];
 
