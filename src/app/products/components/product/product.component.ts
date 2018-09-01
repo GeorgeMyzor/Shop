@@ -12,9 +12,13 @@ import { Output } from '@angular/core';
 export class ProductComponent {
   @Input() product: IProduct;
   @Output() buy: EventEmitter<IProduct> = new EventEmitter();
+  @Output() editProduct = new EventEmitter<IProduct>();
+
   isBought: boolean;
 
-  constructor() { }
+  onEditProduct() {
+    this.editProduct.emit(this.product);
+  }
 
   onBuy() {
     this.isBought = true;

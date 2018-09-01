@@ -42,3 +42,6 @@ OrderBy Name/Price/etc Asc/Desc pipe used in product-list.component.
 Add pipe in shared module.
 
 Add async pipe.
+
+Task 5:
+Add products feature area

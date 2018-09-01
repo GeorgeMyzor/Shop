@@ -17,4 +17,8 @@ Product
 
 <button [disabled]="!product.isAvailable" (click)="onBuy()">Buy</button>
 
+<button (click)="onEditProduct()">
+  Edit
+</button>
+
 <div *ngIf="isBought">Thanks for purchase</div>

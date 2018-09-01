@@ -8,4 +8,5 @@ export interface IProduct {
   isAvailable: boolean;
   shipDate?: Date;
   discount?: number;
+  feedbacks?: string[];
 }
