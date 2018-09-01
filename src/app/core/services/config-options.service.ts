@@ -3,13 +3,11 @@ import { ConfigOptions } from 'src/app/core/models/config-options.model';
 
 import { CoreModule } from 'src/app/core/core.module';
 
-@Injectable({
-  providedIn: CoreModule
-})
+@Injectable()
 export class ConfigOptionsService {
   private configOptions: ConfigOptions;
 
-  constructor(  ) {
+  constructor( ) {
     this.configOptions = new ConfigOptions();
   }
 

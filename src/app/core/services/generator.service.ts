@@ -6,19 +6,15 @@ export const FiveLengthGenerator = new InjectionToken<GeneratorService>('FiveLen
 
 export function GeneratorFactory(length: number) {
     return function(): GeneratorService {
-      return new GeneratorService(length);
+      const generator = new GeneratorService();
+      generator.length = length;
+      return generator;
   };
 }
 
-@Injectable({
-  providedIn: CoreModule
-})
+@Injectable()
 export class GeneratorService {
-  private length: number;
-
-  constructor(length: number) {
-    this.length = length;
-  }
+  public length: number;
 
   generate(): string {
     const test = Math.random().toString(36).substring(2, this.length + 2);
