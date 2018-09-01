@@ -20,9 +20,10 @@ export class StockService {
     this.stockMap[productName]++;
 
     if (this.stockMap[productName] === 1) {
-      const products = this.productsService.getProducts();
-      const product = products.find(p => p.name === productName);
-      product.isAvailable = true;
+      this.productsService.getProducts().then(function(result) {
+        let product = result.find(p => p.name === productName);
+        product.isAvailable = true;
+      });
     }
   }
 
@@ -30,9 +31,10 @@ export class StockService {
     this.stockMap[productName]--;
 
     if (this.stockMap[productName] === 0) {
-      const products = this.productsService.getProducts();
-      const product = products.find(p => p.name === productName);
-      product.isAvailable = false;
+      this.productsService.getProducts().then(function(result) {
+        let product = result.find(p => p.name === productName);
+        product.isAvailable = false;
+      });
     }
   }
 
@@ -45,9 +47,10 @@ export class StockService {
     this.stockMap['Name2'] = 2;
     this.stockMap['Name3'] = 3;
 
-    const products = this.productsService.getProducts();
-    for (const product of products) {
-      product.isAvailable = true;
-    }
+    this.productsService.getProducts().then(function(result) {
+      for (const product of result) {
+        product.isAvailable = true;
+      }
+    });
   }
 }

@@ -11,7 +11,7 @@ import { OrderByPipe } from 'src/app/shared/pipes/order-by.pipe';
   templateUrl: './product-list.component.html',
 })
 export class ProductListComponent implements OnInit {
-  products: IProduct[];
+  products: Promise<IProduct[]>;
 
   constructor(
     private productService: ProductsService,

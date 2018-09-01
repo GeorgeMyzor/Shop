@@ -14,7 +14,9 @@ export class ProductsService {
     new ProductModel('Name3', 'Desc3', 3, Category.Music, true)
   ];
 
-  getProducts(): IProduct[] {
-    return this.products;
+  getProducts(): Promise<IProduct[]> {
+    return new Promise(resolve => {
+      resolve(this.products);
+    });
   }
 }
