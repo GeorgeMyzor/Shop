@@ -5,11 +5,11 @@ import { ICartItem } from 'src/app/interfaces/cart-item.interface';
 import { StockService } from 'src/app/shared/services/stock.service';
 
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
+  selector: 'app-cart-list',
+  templateUrl: './cart-list.component.html',
   styles: []
 })
-export class CartComponent {
+export class CartListComponent {
   styles = {};
 
   get productsCount(): number {

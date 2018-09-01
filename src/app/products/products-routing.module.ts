@@ -16,6 +16,12 @@ const routes: Routes = [
   {
     path: 'edit/:productName',
     component: ProductFormComponent,
+    children: [
+      {
+        path: '',
+        component: ProductFeedbackComponent
+      },
+    ]
   },
 ];
 
